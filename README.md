@@ -16,7 +16,7 @@ http://ieeexplore.ieee.org/document/6273570/
 
 In short, our method consists in:
 
-- Predicting the mails of each sender separately
+- Predicting the mails from each sender separately.
 - Use tf-idf on the whole corpus with no stemming, and tokenizing with spaces only.
 - Using the K nearest neigbhors of each mail in the tf-idf corpus as candidate recipients.
 - Use additionnal features (using the timestamp) and train a classifier to discriminate between good and bad recipients.
