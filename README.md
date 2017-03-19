@@ -21,8 +21,18 @@ In short, our method consists in:
 - Using the K nearest neigbhors of each mail in the tf-idf corpus as candidate recipients.
 - Use additionnal features (using the timestamp) and train a classifier to discriminate between good and bad recipients.
 
+### Explanation of the features:
+
+- 1: Number of candidate mails received by the candidate. The more, the more probable he's going to receive other mails.
+- 2: Sum of the cosine similarities of the mails received by this candidate.
+- 3: Does the name or surname of this candidate appear in the first 30 symbols of the mail ?
+- 4: Sum of the difference of timestamp of received candidate mail and the current mail.
+- 5: Total number of mails reveived by this candidate (not only in the candidate mails).
+- 6: Sum of similarities*(difference of timestamp between the new mail and the candidate mail). The purpose of this feature is to give more importance to more recent mails that have high cosine similariy.
+- 7: Sum of the diffenrences of timestamp to the power $-\lambda$ over all the mails of the candidate recipient. This the memory model feature we took from this article: http://ieeexplore.ieee.org/document/6273570/
 
 You can run our approach by running two python scripts :
 
 data_generator.py
+
 predictor.py
